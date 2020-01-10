@@ -1,0 +1,22 @@
+  1     the reason for the difference between the copy and move operations
+ANSWER:
+the copy operations would take more execution time than move operations 
+because copy operations would need to allocate new memories for the new strings,
+ while move operations takes over the existing addresses.
+
+
+2- the dynamic allocation of addresses to objects instead of objects themselves
+ANSWER:
+allocating space for the objects themselves is not required in this lab because 
+the purpose of this lab is to learn about copy operations and move operations 
+
+
+3- the changes you made in upgrading your w2 and Text modules.
+ANSWER:
+The changes made for ws2_home is adding the rvalue operations that calls the move
+ opeartions created in the Text modules, record the execution time for each 
+operations and include the outputs that satisfys the matrix submission.
+
+QUIZZR1
+
+6-A

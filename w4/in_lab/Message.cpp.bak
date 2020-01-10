@@ -1,0 +1,62 @@
+/**********************************************************
+// author: tchoutedjoum dambou serges
+// Student ID:109240176
+// seneca email:stchoutatgoum@myseneca.ca
+// section:sdd
+///////////////////////////////////////////////////////////
+**********************************************************/
+#include <iostream>
+#include <string>
+#include "Message.h"
+
+namespace sict
+{
+	Message::Message()
+		: c_tweety{ "" }
+		, c_send{ "" }
+		, c_msgTweet{ "" }
+		, c_recept{ "" }
+		, c_directedToRep{ true }
+		, pos{ 0 }
+	{
+	}
+
+	Message::Message(const std::string& str): c_msgTweet{ str }, c_directedToRep{ c_msgTweet.find('@') != std::string::npos ? true : false }, pos{ 0 }{
+		size_t next_space = { c_msgTweet.find(' ') };
+		c_send = { c_msgTweet.substr(pos, next_space) };
+
+		if (c_send.size() > 0 && c_send.size() != c_msgTweet.size()){
+			
+			if (c_directedToRep){
+				pos = {next_space};
+				size_t at_pos = { c_msgTweet.find('@', pos + 1) };
+				next_space = { c_msgTweet.find(' ', pos + 1) };
+
+				c_recept = { c_msgTweet.substr(at_pos + 1, next_space - at_pos) };
+			}
+
+			pos = { next_space };
+			c_tweety = c_msgTweet.substr(pos + 1, c_msgTweet.size());
+		}
+		else{*this = Message();
+		}
+	}
+
+	bool Message::empty() const{
+		if (c_tweety.size() < 1)
+			return true;
+		else
+			return false;
+	}
+
+	void Message::display(std::ostream& os) const{
+		if (c_msgTweet.size()){
+			os << ">User  : " << c_send <<std::endl;
+			if (c_recept.size() > 0)
+				os << " Reply : " << c_recept << std::endl;
+			os <<" Tweet : " << c_tweety << std::endl;
+		}
+	}
+
+	Message::~Message(){}
+}

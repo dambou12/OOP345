@@ -1,0 +1,22 @@
+The reason for specializing the sum() member function.
+ANSWER:
+To concatenate the string, we need to specialize the sum()
+function because the original sum() expects it to be a number that's why
+we need to specialize it in order to handle strings. Therefore,
+
+
+ The reason for specializing the initial value for a summation.
+answer:
+We should specialize the initial value for the proper summation between
+different types. When the accepted value as a string, the initial value
+should be considered as string type. So, it has to be initialized to an
+empty string. The template statement for the string type is like
+
+
+
+ The reason for defining the class variable outside the class definition.
+ANSWER
+For example, the value of the "min_width" has to be the same and also has
+not to get leverage after class derived, so I declared "min_width" as static.
+To be the same, and share the value for all, the "min_width" should be defined
+outside the class for the organized output.
